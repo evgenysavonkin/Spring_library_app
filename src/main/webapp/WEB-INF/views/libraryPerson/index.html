@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список людей</title>
+</head>
+<body>
+<h2>Список людей</h2>
+<div th:each="person : ${people}">
+    <a th:href="@{/person/{id}(id=${person.getHuman_id()})}"
+       th:text="${person.getFullName() + ', ' + person.getYearOfBirth()}">USER</a>
+</div>
+<br>
+<hr>
+<form th:method="GET" th:action="@{/person/new}">
+    <input style="border-radius: 8px" type="submit" value="Добавить человека">
+</form>
+</body>
+</html>
