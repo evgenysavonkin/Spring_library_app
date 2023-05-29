@@ -80,9 +80,9 @@ public class BookController {
     @PatchMapping("{id}/update")
     public String setPerson(@ModelAttribute("book") @Valid Book book,
             BindingResult bindingResult, @PathVariable("id") int id){
-        if (bindingResult.hasErrors()){
-            return "libraryBook/show";
-        }
+//        if (bindingResult.hasErrors()){
+//            return "libraryBook/show";
+//        }
         bookDAO.setPerson(book, id);
         return "redirect:/book";
     }
